@@ -40,33 +40,37 @@ const DynamicForm = () => {
 
   return (
     <div>
+
       <h1>GL Request Form using Formik</h1>
-      <Formik
+      <div className='container'>
+        <div className='row'>
+          <div className='col-sm-6'>
+          <Formik
         enableReinitialize
         initialValues={editIndex !== null ? tableData[editIndex] : initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         {formik => (
-          <Form>
-            <div>
+          <Form className='col-12'>
+            <div className='mb-3'>
               <label className="form-label" htmlFor="name">Name</label>
               <Field className="form-control" type="text" id="name" name="name" />
               <ErrorMessage name="name" component="div" />
             </div>
-            <div>
+            <div className='mb-3'>
               <label className="form-label" htmlFor="email">Email</label>
               <Field className="form-control" type="email" id="email" name="email" />
               <ErrorMessage name="email" component="div" />
             </div>
-            <div>
+            <div className='mb-3'>
               <label className="form-label"htmlFor="age">Age</label>
               <Field className="form-control" type="number" id="age" name="age" />
               <ErrorMessage name="age" component="div" />
             </div>
-            <div>
+            <div className='mb-3'>
               <label htmlFor="country">Country</label>
-              <Field as="select" id="country" name="country">
+              <Field className="form-select" as="select" id="country" name="country">
                 <option value="" label="Select country" />
                 <option value="USA" label="United States" />
                 <option value="Canada" label="Canada" />
@@ -75,12 +79,19 @@ const DynamicForm = () => {
               </Field>
               
             </div>
-            <button type="submit">Submit</button>
+            <button className='btn btn-danger mb-3' type="submit">Submit</button>
           </Form>
         )}
       </Formik>
+          </div>
+        </div>
+      </div>
+      
 
-      <h2>Submitted Data</h2>
+<div className='container'>
+<div className='row'>
+  <div className='col'>
+  <h2>Submitted Data</h2>
       <table className="table">
         <thead>
           <tr>
@@ -99,14 +110,18 @@ const DynamicForm = () => {
               <td>{data.age}</td>
               <td>{data.country}</td>
               <td>
-                <button onClick={() => handleEdit(index)}>Edit</button>
-                <button onClick={() => handleDelete(index)}>Delete</button>
+                <button className='btn btn-success' onClick={() => handleEdit(index)}>Edit</button>
+                <button className='btn btn-warning' onClick={() => handleDelete(index)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  </div>
+</div>
+</div>
+      
   );
 };
 
