@@ -40,7 +40,7 @@ const DynamicForm = () => {
 
   return (
     <div>
-      <h1>Dynamic Form</h1>
+      <h1>GL Request Form using Formik</h1>
       <Formik
         enableReinitialize
         initialValues={editIndex !== null ? tableData[editIndex] : initialValues}
